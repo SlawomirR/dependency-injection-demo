@@ -7,6 +7,6 @@ public class SetterGreetingService implements IGreetingService {
 
     @Override
     public String sayGreeting() {
-        return "Hello - I was injected by the setter";
+        return "Hello - I was injected via the setter";
     }
 }
