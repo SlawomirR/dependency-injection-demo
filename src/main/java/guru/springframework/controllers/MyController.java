@@ -1,14 +1,14 @@
 package guru.springframework.controllers;
 
-import guru.springframework.services.IGreetingService;
+import guru.springframework.services.GreetingService;
 import org.springframework.stereotype.Controller;
 
 @Controller
 public class MyController {
 
-    private IGreetingService greetingService;
+    private GreetingService greetingService;
 
-    public MyController(IGreetingService greetingService) {
+    public MyController(GreetingService greetingService) {
         this.greetingService = greetingService;
     }
 
