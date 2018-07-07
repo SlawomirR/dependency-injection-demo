@@ -1,9 +1,7 @@
 package guru.springframework;
 
-import guru.springframework.controllers.ConstructorInjectedController;
 import guru.springframework.controllers.MyController;
-import guru.springframework.controllers.PropertyInjectedController;
-import guru.springframework.controllers.SetterInjectedController;
+import guru.springframework.examplebeans.FakeDataSource;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
@@ -15,10 +13,16 @@ public class DependencyInjectionDemoApplication {
         ApplicationContext ctx = SpringApplication.run(DependencyInjectionDemoApplication.class, args);
 
         MyController controller = (MyController) ctx.getBean("myController");
-        System.out.println(controller.hello());
+//        System.out.println(controller.hello());
 
-        System.out.println(ctx.getBean(PropertyInjectedController.class).sayHello());
-        System.out.println(ctx.getBean(SetterInjectedController.class).sayHello());
-        System.out.println(ctx.getBean(ConstructorInjectedController.class).sayHello());
+        FakeDataSource fakeDataSource = (FakeDataSource) ctx.getBean(FakeDataSource.class);
+
+        System.out.println("Name:     " + fakeDataSource.getName());
+        System.out.println("Password: " + fakeDataSource.getPassword());
+        System.out.println("DB URL:   " + fakeDataSource.getUrl());
+
+//        System.out.println(ctx.getBean(PropertyInjectedController.class).sayHello());
+//        System.out.println(ctx.getBean(SetterInjectedController.class).sayHello());
+//        System.out.println(ctx.getBean(ConstructorInjectedController.class).sayHello());
     }
 }
