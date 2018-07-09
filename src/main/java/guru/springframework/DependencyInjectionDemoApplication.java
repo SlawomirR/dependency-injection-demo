@@ -2,6 +2,7 @@ package guru.springframework;
 
 import guru.springframework.controllers.MyController;
 import guru.springframework.examplebeans.FakeDataSource;
+import guru.springframework.examplebeans.FakeJmsBroker;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
@@ -20,6 +21,12 @@ public class DependencyInjectionDemoApplication {
         System.out.println("Name:     " + fakeDataSource.getName());
         System.out.println("Password: " + fakeDataSource.getPassword());
         System.out.println("DB URL:   " + fakeDataSource.getUrl());
+
+        FakeJmsBroker fakeJmsBroker = (FakeJmsBroker) ctx.getBean(FakeJmsBroker.class);
+
+        System.out.println("(jms) Name:     " + fakeJmsBroker.getName());
+        System.out.println("(jms) Password: " + fakeJmsBroker.getPassword());
+        System.out.println("(jms) DB URL:   " + fakeJmsBroker.getUrl());
 
 //        System.out.println(ctx.getBean(PropertyInjectedController.class).sayHello());
 //        System.out.println(ctx.getBean(SetterInjectedController.class).sayHello());
