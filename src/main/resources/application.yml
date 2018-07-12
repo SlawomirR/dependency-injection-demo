@@ -1,0 +1,5 @@
+data:
+  jms:
+    username: JMS user
+    password: jmsPass
+    url: SomeJmsUrl
