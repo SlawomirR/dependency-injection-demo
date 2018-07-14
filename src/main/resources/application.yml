@@ -3,3 +3,10 @@ data:
     username: JMS user
     password: jmsPass
     url: SomeJmsUrl
+
+---
+spring:
+  profiles: pl
+data:
+  jms:
+    password: Slawek_PL_pass_application_yml
